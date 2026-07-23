@@ -1,6 +1,7 @@
 ---
 name: tech-design-doc
-description: Build or refine a technical design doc — the HOW of a feature. Use when the user wants to plan implementation, make architecture decisions, or define how a feature works internally. Reads from an existing PRD for the WHAT; focuses on implementation, testing, and technical trade-offs.
+disable-model-invocation: true
+description: Build or refine a technical design doc for a feature.
 ---
 
 Build or refine a technical design document. A tech design answers HOW — never redefines the WHAT (that's the PRD's job).
@@ -14,13 +15,7 @@ A tech design contains:
 - **Testing decisions** (what to test, at which seam)
 - **Open technical questions** (implementation trade-offs, unknowns)
 
-A tech design never contains:
-- Why the feature exists (that's the PRD's Context/Goals)
-- What the user can do (that's the PRD's Capability Surface)
-- User stories (those belong in the PRD)
-- Product-level scope decisions (those belong in the PRD's Out of Scope)
-
-When you encounter product-level content in a tech design, flag it for migration to the PRD.
+When you encounter product-level content (why the feature exists, what the user can do, user stories, product scope) in a tech design, flag it for migration to the PRD.
 
 ## Process
 
@@ -28,25 +23,24 @@ When you encounter product-level content in a tech design, flag it for migration
 
 The PRD is the input. Read `docs/features/<feature-name>/prd.md` to understand what needs to be built. If no PRD exists, tell the user to run `/prd` first.
 
-### 2. Surface existing knowledge
+### 2. Assess the codebase
 
-Read the codebase — modules, interfaces, existing patterns, test structure — to understand the current implementation landscape. Check existing ADRs and the tech design if one already exists.
+Invoke `/codebase-design` to load the design vocabulary, then read the codebase — modules, interfaces, existing patterns, test structure, existing ADRs, and the tech design if one already exists.
 
-Present what you found:
+**Challenge existing structure.** When the design touches existing modules, don't assume they should be extended as-is. Apply the deletion test: if removing a module would scatter its complexity across callers, it earns its shape; if it would simplify callers, the module is pass-through and the design should propose reshaping it. Assess whether extending a module would make it shallower — more interface for little new depth — and if so, propose deepening instead of layering on top.
+
+Present what you found. Done when every item is addressed:
 - Current implementation state (what's built, what's stubbed, what's missing)
 - Existing technical decisions, if any
+- Depth assessment: which existing modules the design touches are deep (keep), which are shallow or would become shallow under extension (candidates for deepening)
 - Gaps: undefined interfaces, missing seams, contradictions between PRD and code
 - Seams: where will you test? Prefer existing seams over new ones. Propose at the highest point possible.
 
-### 3. Load design vocabulary
-
-Invoke `/codebase-design` to load the shared vocabulary before writing.
-
-### 4. Draft or update the tech design
+### 3. Draft or update the tech design
 
 Write only what is known and decided. Do not fill in gaps or invent answers — leave unknowns as open questions. The grilling session will resolve them.
 
-Write or update the tech design at `docs/features/<feature-name>/tech-design.md` using this structure:
+Write or update `docs/features/<feature-name>/tech-design.md`:
 
 ```markdown
 # <Feature Name> — Technical Design
@@ -58,24 +52,19 @@ One-line: what this doc covers. Link to the PRD for WHAT and WHY.
 How the pieces fit together. Module boundaries, data flow, wiring.
 
 ## Implementation Sections
-One section per major implementation unit. Name each for what it builds, not for a PRD capability. Include model/schema design where relevant.
+One section per major implementation unit. Name each for what it builds.
 
 ## Testing Decisions
-- What makes a good test for this feature (seams, boundaries)
-- Which modules get tested and at which level
-- Prior art: similar test patterns already in the codebase
 
 ## Decisions Made
-Table: #, Decision, Rationale. Implementation-level decisions only.
+Table: #, Decision, Rationale.
 
 ## Open Technical Questions
-Table: #, Question, Depends on. Implementation unknowns only.
+Table: #, Question, Depends on.
 ```
 
-### 5. Start design refinement
+### 4. Start design refinement
 
 Once the draft is written, tell the user:
 
-> Draft tech design written. Want to grill it? I'll run `/grill-with-docs` scoped to implementation decisions only — no product questions.
-
-If they accept, invoke `/grill-with-docs` with the argument: the tech design path and the instruction "grill the HOW only — architecture, implementation decisions, testing strategy, technical trade-offs. Redirect any WHAT questions (capabilities, user stories, UX) to the PRD."
+> Draft tech design written. Want to grill it? Run `/grilling` scoped to implementation decisions — architecture, testing strategy, technical trade-offs.
