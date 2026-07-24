@@ -27,7 +27,7 @@ The PRD is the input. Read `docs/features/<feature-name>/prd.md` to understand w
 
 Invoke `/codebase-design` to load the design vocabulary, then read the codebase — modules, interfaces, existing patterns, test structure, existing ADRs, and the tech design if one already exists.
 
-**Challenge existing structure.** When the design touches existing modules, don't assume they should be extended as-is. Apply the deletion test: if removing a module would scatter its complexity across callers, it earns its shape; if it would simplify callers, the module is pass-through and the design should propose reshaping it. Assess whether extending a module would make it shallower — more interface for little new depth — and if so, propose deepening instead of layering on top.
+**Challenge existing structure.** When the design touches existing modules, don't assume they should be extended as-is. Apply the deletion test. Assess whether extending a module would make it shallower — more interface for little new depth — and if so, propose deepening instead of layering on top.
 
 Present what you found. Done when every item is addressed:
 - Current implementation state (what's built, what's stubbed, what's missing)
@@ -51,6 +51,9 @@ One-line: what this doc covers. Link to the PRD for WHAT and WHY.
 ## Architecture
 How the pieces fit together. Module boundaries, data flow, wiring.
 
+## Contract / Models / Interfacts
+What contract is needed to define / to modify: Api Contract, Database models, Validation.
+
 ## Implementation Sections
 One section per major implementation unit. Name each for what it builds.
 
@@ -68,3 +71,4 @@ Table: #, Question, Depends on.
 Once the draft is written, tell the user:
 
 > Draft tech design written. Want to grill it? Run `/grilling` scoped to implementation decisions — architecture, testing strategy, technical trade-offs.
+Redirect what questions to the PRD
