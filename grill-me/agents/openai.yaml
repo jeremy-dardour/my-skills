@@ -1,0 +1,7 @@
+interface:
+  display_name: "grill-me"
+  short_description: "A relentless interview to sharpen a plan or design."
+  default_prompt: "Use $grill-me for this task."
+
+policy:
+  allow_implicit_invocation: false

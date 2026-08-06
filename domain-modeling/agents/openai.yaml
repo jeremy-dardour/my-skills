@@ -1,0 +1,7 @@
+interface:
+  display_name: "domain-modeling"
+  short_description: "Build and sharpen a project's domain model. Use when the user wa"
+  default_prompt: "Use $domain-modeling for this task."
+
+policy:
+  allow_implicit_invocation: true

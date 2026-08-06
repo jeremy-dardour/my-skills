@@ -1,0 +1,7 @@
+interface:
+  display_name: "log-session"
+  short_description: "Write a dated session log entry for a working session. Typically"
+  default_prompt: "Use $log-session for this task."
+
+policy:
+  allow_implicit_invocation: true

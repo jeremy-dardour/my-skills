@@ -1,0 +1,7 @@
+interface:
+  display_name: "caveman"
+  short_description: "Ultra-compressed communication mode. Cuts token usage ~75% by dr"
+  default_prompt: "Use $caveman for this task."
+
+policy:
+  allow_implicit_invocation: true

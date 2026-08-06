@@ -1,0 +1,7 @@
+interface:
+  display_name: "diagnosing-bugs"
+  short_description: "Diagnosis loop for hard bugs and performance regressions. Use wh"
+  default_prompt: "Use $diagnosing-bugs for this task."
+
+policy:
+  allow_implicit_invocation: true

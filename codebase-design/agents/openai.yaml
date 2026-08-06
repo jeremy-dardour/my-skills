@@ -1,0 +1,7 @@
+interface:
+  display_name: "codebase-design"
+  short_description: "Shared vocabulary for designing deep modules. Use when the user "
+  default_prompt: "Use $codebase-design for this task."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "wayfinder"
+  short_description: "Plan a huge chunk of work — more than one agent session can hold"
+  default_prompt: "Use $wayfinder for this task."
+
+policy:
+  allow_implicit_invocation: false

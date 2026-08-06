@@ -1,0 +1,7 @@
+interface:
+  display_name: "create-ticket"
+  short_description: "Create a single ticket in the project's issue tracker using the "
+  default_prompt: "Use $create-ticket for this task."
+
+policy:
+  allow_implicit_invocation: true

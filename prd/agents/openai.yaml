@@ -1,0 +1,7 @@
+interface:
+  display_name: "prd"
+  short_description: "Build or refine a PRD — the WHY and WHAT of a feature. Use when "
+  default_prompt: "Use $prd for this task."
+
+policy:
+  allow_implicit_invocation: true

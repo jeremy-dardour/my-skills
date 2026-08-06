@@ -1,0 +1,7 @@
+interface:
+  display_name: "prototype"
+  short_description: "Build a throwaway prototype to answer a design question. Use whe"
+  default_prompt: "Use $prototype for this task."
+
+policy:
+  allow_implicit_invocation: true

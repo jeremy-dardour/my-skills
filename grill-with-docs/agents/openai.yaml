@@ -1,0 +1,7 @@
+interface:
+  display_name: "grill-with-docs"
+  short_description: "A relentless interview to sharpen a plan or design, which also c"
+  default_prompt: "Use $grill-with-docs for this task."
+
+policy:
+  allow_implicit_invocation: false

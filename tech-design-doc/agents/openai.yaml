@@ -1,0 +1,7 @@
+interface:
+  display_name: "tech-design-doc"
+  short_description: "Build or refine a technical design doc for a feature."
+  default_prompt: "Use $tech-design-doc for this task."
+
+policy:
+  allow_implicit_invocation: false

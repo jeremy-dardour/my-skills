@@ -1,0 +1,7 @@
+interface:
+  display_name: "handoff"
+  short_description: "Compact the current conversation into a handoff document for ano"
+  default_prompt: "Use $handoff for this task."
+
+policy:
+  allow_implicit_invocation: false

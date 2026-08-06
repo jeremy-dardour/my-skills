@@ -1,0 +1,7 @@
+interface:
+  display_name: "to-spec"
+  short_description: "Turn the current conversation into a spec and publish it to the "
+  default_prompt: "Use $to-spec for this task."
+
+policy:
+  allow_implicit_invocation: false

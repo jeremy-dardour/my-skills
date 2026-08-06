@@ -1,0 +1,7 @@
+interface:
+  display_name: "conductor-task"
+  short_description: "Stay on the assigned task."
+  default_prompt: "Use $conductor-task for this task."
+
+policy:
+  allow_implicit_invocation: false
