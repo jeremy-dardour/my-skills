@@ -66,7 +66,7 @@ proceed without confirmation.
 ### 4. Create Tickets
 
 For each confirmed slice, create a ticket at the location of the user's preference following the
-[ticket template](TICKET_TEMPLATE.md). Pull the **what** from the PRD and the
+[ticket template](../create-ticket/TICKET_TEMPLATE.md). Pull the **what** from the PRD and the
 **how** from the tech design doc — each ticket is self-contained enough for a
 fresh implementation agent to build from without prior context.
 

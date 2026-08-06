@@ -1,0 +1,7 @@
+interface:
+  display_name: "to-tickets"
+  short_description: "Decompose a PRD + tech design document into vertical-slice GitHu"
+  default_prompt: "Use $to-tickets for this task."
+
+policy:
+  allow_implicit_invocation: false
